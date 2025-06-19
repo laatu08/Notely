@@ -210,7 +210,6 @@ const CanvasEditor = () => {
     <div className="flex-1 overflow-auto h-full w-full">
       <canvas
         ref={canvasRef}
-        style={{ border: "1px solid red", cursor: "crosshair" }}
       />
     </div>
   );
