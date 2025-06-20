@@ -8,8 +8,9 @@ const ShapeToolbar = () => {
     { name: "text", label: "Text" },
     { name: "rectangle", label: "Rectangle" },
     { name: "diamond", label: "Diamond" },
-    { name: "arrow", label: "Arrow" },
     { name: "circle", label: "Circle" },
+    { name: "line", label: "Line" },
+    { name: "arrow", label: "Arrow" },
   ];
 
   return (

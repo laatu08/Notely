@@ -115,8 +115,34 @@ const CanvasEditor = () => {
             width: 100,
             height: 60,
             fill: "lightblue",
-            stroke:"black",
-            strokeWidth:2
+            stroke: "black",
+            strokeWidth: 2,
+          });
+          break;
+        case "arrow":
+          const line = new fabric.Line([x, y, x + 100, y], {
+            stroke: "black",
+            strokeWidth: 2,
+            selectable: false,
+          });
+
+          const angle = Math.atan2(0, 100); // y2 - y1, x2 - x1
+          const arrowHead = new fabric.Triangle({
+            left: x + 100,
+            top: y,
+            originX: "center",
+            originY: "center",
+            angle: 90,
+            width: 10,
+            height: 15,
+            fill: "black",
+            selectable: false,
+          });
+
+          shape = new fabric.Group([line, arrowHead], {
+            left: x,
+            top: y,
+            selectable: true,
           });
           break;
         case "diamond":
@@ -131,12 +157,12 @@ const CanvasEditor = () => {
               left: x,
               top: y,
               fill: "lightgreen",
-              stroke:"black",
-            strokeWidth:2
+              stroke: "black",
+              strokeWidth: 2,
             }
           );
           break;
-        case "arrow":
+        case "line":
           shape = new fabric.Line([x, y, x + 100, y], {
             stroke: "black",
             strokeWidth: 2,
@@ -212,9 +238,7 @@ const CanvasEditor = () => {
 
   return (
     <div className="flex-1 overflow-auto h-full w-full">
-      <canvas
-        ref={canvasRef}
-      />
+      <canvas ref={canvasRef} />
     </div>
   );
 };
