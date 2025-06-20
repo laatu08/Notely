@@ -105,7 +105,7 @@ const CanvasEditor = () => {
             radius: 50,
             fill: "lightcoral",
             stroke: "black",
-            strokeWidth: 1,
+            strokeWidth: 2,
           });
           break;
         case "rectangle":
@@ -115,6 +115,8 @@ const CanvasEditor = () => {
             width: 100,
             height: 60,
             fill: "lightblue",
+            stroke:"black",
+            strokeWidth:2
           });
           break;
         case "diamond":
@@ -129,6 +131,8 @@ const CanvasEditor = () => {
               left: x,
               top: y,
               fill: "lightgreen",
+              stroke:"black",
+            strokeWidth:2
             }
           );
           break;
