@@ -102,7 +102,7 @@ const handleZoomOut = () => {
       >
         <Menu size={20} />
       </button>
-      <div className="font-bold text-lg">Notely</div>
+      {/* <div className="font-bold text-lg">Notely</div> */}
       <div className="flex gap-2">
         <button onClick={handleZoomIn} className="bg-blue-200 text-black px-3 py-1 rounded">Zoom In</button>
   <button onClick={handleZoomOut} className="bg-blue-200 text-black px-3 py-1 rounded">Zoom Out</button>
