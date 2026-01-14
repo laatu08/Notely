@@ -109,8 +109,30 @@ const safePrompt = (msg) => {
 };
 
 // -------------------- COMPONENT --------------------
+// -------------------- PERSISTENCE --------------------
+const STORAGE_KEY = "note_canvas_folders_v1";
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
 export default function Sidebar() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const persisted = loadState();
+  const [state, dispatch] = useReducer(reducer, persisted || initialState);
+
+  // persist on every state change
+  React.useEffect(() => {
+    saveState(state);
+  }, [state]);
 
   return (
     <div className="w-64 bg-gray-100 p-4 border-r overflow-y-auto">
